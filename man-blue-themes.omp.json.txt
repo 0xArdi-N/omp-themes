@@ -1,0 +1,150 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#0057b7",
+          "style": "plain",
+          "template": "\ue0c5",
+          "type": "text"
+        },
+        {
+          "background": "#0057b7",
+          "foreground": "#FBD951",
+          "leading_diamond": "\ue0b2",
+          "properties": {
+            "alpine": "\uf300",
+            "arch": "\uf303",
+            "centos": "\uf304",
+            "debian": "\uf306",
+            "elementary": "\uf309",
+            "fedora": "\uf30a",
+            "gentoo": "\uf30d",
+            "linux": "\ue712",
+            "macos": "\ue711",
+            "manjaro": "\uf312",
+            "mint": "\uf30f",
+            "opensuse": "\uf314",
+            "raspbian": "\uf315",
+            "ubuntu": "\uf31c",
+            "windows": "\ue70f"
+          },
+          "style": "powerline",
+          "template": " {{ if .WSL }}\ue712 on {{ end }}{{ .Icon }} ",
+          "type": "os"
+        },
+        {
+          "background": "#0057b7",
+          "foreground": "#FBD951",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "template": "\uf85a MEM: {{ round .PhysicalPercentUsed .Precision }}% | {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB \uf85a ",
+          "trailing_diamond": "<transparent,#516BEB>\ue0b2</>",
+          "type": "sysinfo"
+        },
+        {
+          "background": "#268fc4",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "powerline",
+          "template": " \uf064  {{ .FormattedMs }} ",
+          "type": "executiontime"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "background": "#17D7A0",
+          "foreground": "#011627",
+          "leading_diamond": "\ue0b2",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "fetch_worktree_count": true
+          },
+          "style": "diamond",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+          "trailing_diamond": "\ue0b0",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#D6DEEB",
+          "style": "plain",
+          "template": "\u256d\u2500",
+          "type": "text"
+        },
+        {
+          "foreground": "#F2D3B6",
+          "properties": {
+            "time_format": "<#D6DEEB>\uf64f 15:04:05</> <#79DFE1>|</> \uf5ef 2 Jan, Monday"
+          },
+          "style": "plain",
+          "template": "{{ .CurrentDate | date .Format }} <#79DFE1>|</>",
+          "type": "time"
+        },
+        {
+          "foreground": "#B6D6F2",
+          "leading_diamond": "<#00C7FC> \uf07b </><#B6D6F2> in </>",
+          "properties": {
+            "folder_icon": " \uf07c ",
+            "folder_separator_icon": " \uf554 ",
+            "home_icon": "\uf7db ",
+            "style": "agnoster_short",
+            "max_depth": 3
+          },
+          "style": "diamond",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#D6DEEB",
+          "style": "plain",
+          "template": "\u2570\u2500",
+          "type": "text"
+        },
+        {
+          "foreground": "#D6DEEB",
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "plain",
+          "template": "\u276f ",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "console_title_template": "{{ .Folder }}",
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#FEF5ED",
+    "template": "\ue285 "
+  },
+  "version": 2
+}
